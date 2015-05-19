@@ -7,3 +7,22 @@ $assetPath: "../../node_modules/Ovid/dist" !default;
 @import "../../node_modules/Ovid/dist/stylesheets/ovid";
 
 @import "../../node_modules/ControlPanel/lib/stylesheets/control-panel-app";
+
+$sidebarWidth: 20%;
+
+.search__wrapper {
+  margin-top: $paddingSmall + 2px;
+  position: relative;
+  width: 450px;
+}
+
+// Override Ovid
+
+.ui-main__header {
+  margin-left: 0;
+}
+
+.ui-main__sidebar {
+  left: 0;
+  width: $sidebarWidth;
+}

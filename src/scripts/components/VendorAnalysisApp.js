@@ -3,21 +3,29 @@
 var React = require('react/addons');
 
 var MainNav = require('./main_nav');
-var MainHeader = require('./main_header');
-var SearchBox = require('./search_box');
+var Home = require('./home');
+var VendorProfileSection = require('./vendor_profile_section');
+var ProductCategorySection = require('./product_category_section');
 
 // CSS
 require('../../styles/index.scss');
 
 var VendorAnalysisApp = React.createClass({
+  getInitialState: function() {
+    return {
+      currentSection: "Product Category"
+    };
+  },
+
   render: function() {
     return (
       <div>
-	      <MainNav/>
-	      <MainHeader/>
-	      <section className="main-content">
-	      	<SearchBox/>
-	      </section>
+        <MainNav/>
+        <section>
+          {this.state.currentSection === "Home" ? <Home/> : null}
+          {this.state.currentSection === "Vendor Profile" ? <VendorProfileSection/> : null}
+          {this.state.currentSection === "Product Category" ? <ProductCategorySection/> : null}
+        </section>
       </div>
     );
   }
